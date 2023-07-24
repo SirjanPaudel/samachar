@@ -1,25 +1,60 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { Component } from 'react';
+import Navbar from './components/Navbar';
+import News from './components/News';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+export default class App extends Component {
+  render() {
+    return (
+      <>
+        <BrowserRouter>
+          <div>
+            <Navbar />
+            <div className="container">
+              <Routes>
+                <Route
+              exact path = "/" 
+              element = {
+                <News pageSize={8} key='general'/>
+              }/>
+                <Route
+              exact path = "/technology"
+              element = {
+                <News pageSize={8}  key='technology' category='technology' />
+              }/>
+                <Route
+              exact path = "/business"  
+              element = {
+                <News pageSize={8} key='business'  category='business' />
+              }/>
+                <Route
+              exact path = "/sports" 
+              element = {
+                <News pageSize={8}  key='sports' category='sports'/>
+              }/>
+                <Route
+              exact path = "/health" 
+              element = {
+                <News pageSize={8} key='health' category='health'/>
+              }/>
+                <Route
+              exact path = "/entertainment" 
+              element = {
+                <News pageSize={8} key='entertainment' category='entertainment'/>
+              }/>
+                <Route
+              exact path = "/science"
+              element = {
+                <News pageSize={8} key='science' category='science'/>
+              }/>
+              </Routes>
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+            </div>
+          </div>
+        </BrowserRouter>
+
+      </>
+    )
+  }
 }
-
-export default App;
