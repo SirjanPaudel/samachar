@@ -7,7 +7,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar';
 export default class App extends Component {
   pages = 16;
-  ak = '0b1e5fa108624b42afdbf8cc6d3f72f7'
+  ak = process.env.REACT_APP_NEWS_API ;
+  // ak = "0b1e5fa108624b42afdbf8cc6d3f72f7" ;
   state = {
     progress: 0
   }

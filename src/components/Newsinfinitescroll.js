@@ -71,7 +71,7 @@ export default class Newsinfinitescroll extends Component {
 
               {this.state.articles.map((element) => {
                 return (
-                  <div key={element.url} className="col-md-3">
+                  <div key={element.url} className="col-md-3 my-2">
                     <Newsitem title={!element.title ? element.title : element.title.slice(0, 25)} description={!element.description ? element.description : element.description.slice(0, 45)} imageUrl={!element.urlToImage ? this.imageForNull : element.urlToImage} newsUrl={element.url} authorName={element.author} publishedDate={element.publishedAt} newsSource={element.source.name} />
                   </div>
 
@@ -79,7 +79,8 @@ export default class Newsinfinitescroll extends Component {
               })}
             </div>
           </InfiniteScroll>
-        </div>
+          </div>
+
       </div>
     )
   }
