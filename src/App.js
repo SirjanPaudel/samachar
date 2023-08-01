@@ -5,8 +5,8 @@ import Navbar from './components/Navbar';
 import Newsinfinitescroll from './components/Newsinfinitescroll';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 export default class App extends Component {
-  pages = 9;
-  ak = '7971aca48328410880ef730e3c6f1bbc'
+  pages = 16;
+   ak = '0b1e5fa108624b42afdbf8cc6d3f72f7'
   render() {
     return (
       <>
@@ -32,7 +32,7 @@ export default class App extends Component {
 
 
                     // For infinite Scroll
-                    <Newsinfinitescroll pageSize={this.pages}  key='technology' category='technology' />
+                    <Newsinfinitescroll pageSize={this.pages}  apiKey={this.ak} key='technology' category='technology' />
                   } />
                 <Route
                   exact path="/business"
@@ -41,7 +41,7 @@ export default class App extends Component {
 
 
                     // For infinite Scroll
-                    <Newsinfinitescroll pageSize={this.pages} key='business'  category='business' />
+                    <Newsinfinitescroll pageSize={this.pages}  apiKey={this.ak} key='business'  category='business' />
                   } />
                 <Route
                   exact path="/sports"
@@ -50,7 +50,7 @@ export default class App extends Component {
 
 
                     // For infinite Scroll
-                    <Newsinfinitescroll pageSize={this.pages}  key='sports' category='sports'/>
+                    <Newsinfinitescroll pageSize={this.pages}   apiKey={this.ak} key='sports' category='sports'/>
                   } />
                 <Route
                   exact path="/health"
@@ -59,7 +59,7 @@ export default class App extends Component {
 
 
                     // For infinite Scroll
-                    <Newsinfinitescroll pageSize={this.pages} key='health' category='health'/>
+                    <Newsinfinitescroll pageSize={this.pages} key='health'  apiKey={this.ak} category='health'/>
                   } />
                 <Route
                   exact path="/entertainment"
@@ -68,7 +68,7 @@ export default class App extends Component {
 
 
                     // For infinite Scroll
-                    <Newsinfinitescroll pageSize={this.pages} key='entertainment' category='entertainment'/>
+                    <Newsinfinitescroll pageSize={this.pages} key='entertainment'  apiKey={this.ak} category='entertainment'/>
                   } />
                 <Route
                   exact path="/science"
@@ -77,7 +77,7 @@ export default class App extends Component {
 
 
                     // For infinite Scroll
-                    <Newsinfinitescroll pageSize={this.pages} key='science' category='science'/>
+                    <Newsinfinitescroll pageSize={this.pages} key='science'   apiKey={this.ak} category='science'/>
                   } />
               </Routes>
 
