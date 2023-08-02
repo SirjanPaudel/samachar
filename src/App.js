@@ -1,31 +1,26 @@
 import './App.css';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 // import News from './components/News';
 import Newsinfinitescroll from './components/Newsinfinitescroll';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar';
-export default class App extends Component {
-  pages = 16;
-  ak = process.env.REACT_APP_NEWS_API ;
+const App = () => {
+  const pages = 16;
+  const ak = process.env.REACT_APP_NEWS_API ;
   // ak = "0b1e5fa108624b42afdbf8cc6d3f72f7" ;
-  state = {
-    progress: 0
+ const [progress, setProgressing] = useState(null)
+
+  const setProgress =(progress) => {
+    setProgressing(progress)
   }
 
-  setProgress =(progress) => {
-    this.setState({
-      progress: progress
-    })
-  }
-
-  render() {
 
     return (
       <>
         <BrowserRouter>
           <div>
-            <LoadingBar color="#f11946" progress={this.state.progress} height={3} />
+            <LoadingBar color="#f11946" progress={progress} height={3} />
             <Navbar />
             <div className="container">
               <Routes>
@@ -33,65 +28,65 @@ export default class App extends Component {
                   exact path="/"
                   element={
                     //Note : uncomment News and comment out Newsinfinitescroll  for the pagination also uncomment line 4
-                    // <News pageSize={this.pages} key='general' />
+                    // <News pageSize={pages} key='general' />
 
 
                     // For infinite Scroll
-                    <Newsinfinitescroll setProgress={this.setProgress} apiKey={this.ak} pageSize={this.pages} key='general' />
+                    <Newsinfinitescroll setProgress={setProgress} apiKey={ak} pageSize={pages} key='general' />
                   } />
                 <Route
                   exact path="/technology"
                   element={
-                    // <News pageSize={this.pages} key='technology' category='technology' />
+                    // <News pageSize={pages} key='technology' category='technology' />
 
 
                     // For infinite Scroll
-                    <Newsinfinitescroll setProgress={this.setProgress} pageSize={this.pages} apiKey={this.ak} key='technology' category='technology' />
+                    <Newsinfinitescroll setProgress={setProgress} pageSize={pages} apiKey={ak} key='technology' category='technology' />
                   } />
                 <Route
                   exact path="/business"
                   element={
-                    // <News pageSize={this.pages} key='business' category='business' />
+                    // <News pageSize={pages} key='business' category='business' />
 
 
                     // For infinite Scroll
-                    <Newsinfinitescroll setProgress={this.setProgress} pageSize={this.pages} apiKey={this.ak} key='business' category='business' />
+                    <Newsinfinitescroll setProgress={setProgress} pageSize={pages} apiKey={ak} key='business' category='business' />
                   } />
                 <Route
                   exact path="/sports"
                   element={
-                    // <News pageSize={this.pages} key='sports' category='sports' />
+                    // <News pageSize={pages} key='sports' category='sports' />
 
 
                     // For infinite Scroll
-                    <Newsinfinitescroll setProgress={this.setProgress} pageSize={this.pages} apiKey={this.ak} key='sports' category='sports' />
+                    <Newsinfinitescroll setProgress={setProgress} pageSize={pages} apiKey={ak} key='sports' category='sports' />
                   } />
                 <Route
                   exact path="/health"
                   element={
-                    // <News pageSize={this.pages} key='health' category='health' />
+                    // <News pageSize={pages} key='health' category='health' />
 
 
                     // For infinite Scroll
-                    <Newsinfinitescroll setProgress={this.setProgress} pageSize={this.pages} key='health' apiKey={this.ak} category='health' />
+                    <Newsinfinitescroll setProgress={setProgress} pageSize={pages} key='health' apiKey={ak} category='health' />
                   } />
                 <Route
                   exact path="/entertainment"
                   element={
-                    // <News pageSize={this.pages} key='entertainment' category='entertainment' />
+                    // <News pageSize={pages} key='entertainment' category='entertainment' />
 
 
                     // For infinite Scroll
-                    <Newsinfinitescroll setProgress={this.setProgress} pageSize={this.pages} key='entertainment' apiKey={this.ak} category='entertainment' />
+                    <Newsinfinitescroll setProgress={setProgress} pageSize={pages} key='entertainment' apiKey={ak} category='entertainment' />
                   } />
                 <Route
                   exact path="/science"
                   element={
-                    // <News pageSize={this.pages} key='science' category='science' />
+                    // <News pageSize={pages} key='science' category='science' />
 
 
                     // For infinite Scroll
-                    <Newsinfinitescroll setProgress={this.setProgress} pageSize={this.pages} key='science' apiKey={this.ak} category='science' />
+                    <Newsinfinitescroll setProgress={setProgress} pageSize={pages} key='science' apiKey={ak} category='science' />
                   } />
               </Routes>
 
@@ -102,5 +97,5 @@ export default class App extends Component {
 
       </>
     )
-  }
 }
+export default App ; 
